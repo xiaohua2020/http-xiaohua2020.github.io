@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Tomcat 专题 | xiaohua&#39;blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Tomcat 专题课程内容   序号 第一天 第二天    1 Tomcat 基础 Web 应用配置   2 Tomcat 架构 Tomcat管理配置   3 Jasper JVM配置   4 Tomcat 服务器配置 Tomcat集群   5  Tomcat安全   6  Tomcat性能调优   7  Tomcat 附件功能   1.Tomcat 基础1.1 web 概念12345678910">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tomcat 专题">
+<meta property="og:url" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/index.html">
+<meta property="og:site_name" content="xiaohua&#39;blog">
+<meta property="og:description" content="Tomcat 专题课程内容   序号 第一天 第二天    1 Tomcat 基础 Web 应用配置   2 Tomcat 架构 Tomcat管理配置   3 Jasper JVM配置   4 Tomcat 服务器配置 Tomcat集群   5  Tomcat安全   6  Tomcat性能调优   7  Tomcat 附件功能   1.Tomcat 基础1.1 web 概念12345678910">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560579956706.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560583456498.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561476556938.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561477805695.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561477911915.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561478100639.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561478220305.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561478284441.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560696193103.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560697061415.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560833167711.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560660827492.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561166229095.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561170015860.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560661868721.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561197171566.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561197958434.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561209001499.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560686115687.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560854103740.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560854814464.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560855419861.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560953623598.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561628676871.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561631313124.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561633431160.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561632389373.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560956861899.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560959032664.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561723489828.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561218961211.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561218587098.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561221034443.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561290672734.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561298658175.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1561375210344.png">
+<meta property="article:published_time" content="2020-03-18T14:35:16.999Z">
+<meta property="article:modified_time" content="2020-03-03T15:11:47.197Z">
+<meta property="article:author" content="xiaohua">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/assets/1560579956706.png">
+  
+    <link rel="alternate" href="/atom.xml" title="xiaohua&#39;blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">xiaohua&#39;blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">每个微小的个体都有发光的权利</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags">tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Tomcat 专题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/" class="article-date">
+  <time datetime="2020-03-18T14:35:16.999Z" itemprop="datePublished">2020-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Tomcat 专题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Tomcat-专题"><a href="#Tomcat-专题" class="headerlink" title="Tomcat 专题"></a>Tomcat 专题</h1><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th>第一天</th>
+<th>第二天</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td>Tomcat 基础</td>
+<td>Web 应用配置</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>Tomcat 架构</td>
+<td>Tomcat管理配置</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td>Jasper</td>
+<td>JVM配置</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td>Tomcat 服务器配置</td>
+<td>Tomcat集群</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td></td>
+<td>Tomcat安全</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td></td>
+<td>Tomcat性能调优</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td></td>
+<td>Tomcat 附件功能</td>
+</tr>
+</tbody></table>
+<h2 id="1-Tomcat-基础"><a href="#1-Tomcat-基础" class="headerlink" title="1.Tomcat 基础"></a>1.Tomcat 基础</h2><h3 id="1-1-web-概念"><a href="#1-1-web-概念" class="headerlink" title="1.1 web 概念"></a>1.1 web 概念</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">1）. 软件架构</span><br><span class="line"></span><br><span class="line">	1. C&#x2F;S： 客户端&#x2F;服务器端 ------------&gt; QQ , 360 ....</span><br><span class="line">	</span><br><span class="line">	2. B&#x2F;S： 浏览器&#x2F;服务器端 ------------&gt; 京东， 网易 ， 淘宝 ， 传智播客官网</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">2）. 资源分类</span><br><span class="line"></span><br><span class="line">	1. 静态资源： 所有用户访问后，得到的结果都是一样的，称为静态资源。静态资源可以直接被浏览器解析。</span><br><span class="line">		* 如： html,css,JavaScript，jpg</span><br><span class="line">		</span><br><span class="line">	2. 动态资源: 每个用户访问相同资源后，得到的结果可能不一样 , 称为动态资源。动态资源被访问后，需要先转换为静态资源，再返回给浏览器，通过浏览器进行解析。</span><br><span class="line">		* 如：servlet&#x2F;jsp,php,asp....</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">3）. 网络通信三要素</span><br><span class="line"></span><br><span class="line">	1. IP：电子设备(计算机)在网络中的唯一标识。</span><br><span class="line">	</span><br><span class="line">	2. 端口：应用程序在计算机中的唯一标识。 0~65536</span><br><span class="line">	</span><br><span class="line">	3. 传输协议：规定了数据传输的规则</span><br><span class="line">		</span><br><span class="line">		1. 基础协议：</span><br><span class="line">			</span><br><span class="line">			1. tcp : 安全协议，三次握手。 速度稍慢</span><br><span class="line">			</span><br><span class="line">			2. udp：不安全协议。 速度快</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-2-常见的web服务器"><a href="#1-2-常见的web服务器" class="headerlink" title="1.2 常见的web服务器"></a>1.2 常见的web服务器</h3><h4 id="1-2-1-概念"><a href="#1-2-1-概念" class="headerlink" title="1.2.1 概念"></a>1.2.1 概念</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1）. 服务器：安装了服务器软件的计算机</span><br><span class="line"></span><br><span class="line">2）. 服务器软件：接收用户的请求，处理请求，做出响应</span><br><span class="line"></span><br><span class="line">3）. web服务器软件：接收用户的请求，处理请求，做出响应。</span><br><span class="line"></span><br><span class="line">	在web服务器软件中，可以部署web项目，让用户通过浏览器来访问这些项目</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="1-2-2-常见web服务器软件"><a href="#1-2-2-常见web服务器软件" class="headerlink" title="1.2.2 常见web服务器软件"></a>1.2.2 常见web服务器软件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1). webLogic：oracle公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。</span><br><span class="line"></span><br><span class="line">2). webSphere：IBM公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。</span><br><span class="line"></span><br><span class="line">3). JBOSS：JBOSS公司的，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。</span><br><span class="line"></span><br><span class="line">4). Tomcat：Apache基金组织，中小型的JavaEE服务器，仅仅支持少量的JavaEE规范servlet&#x2F;jsp。开源的，免费的。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-3-Tomcat-历史"><a href="#1-3-Tomcat-历史" class="headerlink" title="1.3 Tomcat 历史"></a>1.3 Tomcat 历史</h3><p>1） Tomcat 最初由Sun公司的软件架构师 James Duncan Davidson 开发，名称为 “JavaWebServer”。</p>
+<p>2） 1999年 ，在 Davidson 的帮助下，该项目于1999年于apache 软件基金会旗下的 JServ 项目合并，并发布第一个版本（3.x）, 即是现在的Tomcat，该版本实现了Servlet2.2 和 JSP 1.1 规范 。</p>
+<p>3） 2001年，Tomcat 发布了4.0版本， 作为里程碑式的版本，Tomcat 完全重新设计了其架构，并实现了 Servlet 2.3 和 JSP1.2规范。</p>
+<p>目前 Tomcat 已经更新到 9.0.x版本 ， 但是目前企业中的Tomcat服务器， 主流版本还是 7.x 和 8.x ， 所以本课程是基于 8.5 版本进行讲解。</p>
+<h3 id="1-4-Tomcat-安装"><a href="#1-4-Tomcat-安装" class="headerlink" title="1.4 Tomcat 安装"></a>1.4 Tomcat 安装</h3><h4 id="1-4-1-下载"><a href="#1-4-1-下载" class="headerlink" title="1.4.1 下载"></a>1.4.1 下载</h4><p><a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-80.cgi</a></p>
+<p><img src="assets/1560579956706.png" alt="1560579956706"> </p>
+<h4 id="1-4-2-安装"><a href="#1-4-2-安装" class="headerlink" title="1.4.2 安装"></a>1.4.2 安装</h4><p>将下载的 .zip 压缩包 ， 解压到系统的目录（建议是没有中文不带空格的目录）下即可。</p>
+<h3 id="1-5-Tomcat-目录结构"><a href="#1-5-Tomcat-目录结构" class="headerlink" title="1.5 Tomcat 目录结构"></a>1.5 Tomcat 目录结构</h3><p>Tomcat 的主要目录文件如下 ：</p>
+<table>
+<thead>
+<tr>
+<th><strong>目录</strong></th>
+<th><strong>目录下文件</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>bin</strong></td>
+<td>/</td>
+<td>存放Tomcat的启动、停止等批处理脚本文件</td>
+</tr>
+<tr>
+<td></td>
+<td>startup.bat , startup.sh</td>
+<td>用于在windows和linux下的启动脚本</td>
+</tr>
+<tr>
+<td></td>
+<td>shutdown.bat , shutdown.sh</td>
+<td>用于在windows和linux下的停止脚本</td>
+</tr>
+<tr>
+<td><strong>conf</strong></td>
+<td>/</td>
+<td>用于存放Tomcat的相关配置文件</td>
+</tr>
+<tr>
+<td></td>
+<td>Catalina</td>
+<td>用于存储针对每个虚拟机的Context配置</td>
+</tr>
+<tr>
+<td></td>
+<td>context.xml</td>
+<td>用于定义所有web应用均需加载的Context配置，如果web应用指定了自己的context.xml ，该文件将被覆盖</td>
+</tr>
+<tr>
+<td></td>
+<td>catalina.properties</td>
+<td>Tomcat 的环境变量配置</td>
+</tr>
+<tr>
+<td></td>
+<td>catalina.policy</td>
+<td>Tomcat 运行的安全策略配置</td>
+</tr>
+<tr>
+<td></td>
+<td>logging.properties</td>
+<td>Tomcat 的日志配置文件， 可以通过该文件修改Tomcat  的日志级别及日志路径等</td>
+</tr>
+<tr>
+<td></td>
+<td>server.xml</td>
+<td>Tomcat 服务器的核心配置文件</td>
+</tr>
+<tr>
+<td></td>
+<td>tomcat-users.xml</td>
+<td>定义Tomcat默认的用户及角色映射信息配置</td>
+</tr>
+<tr>
+<td></td>
+<td>web.xml</td>
+<td>Tomcat 中所有应用默认的部署描述文件， 主要定义了基础Servlet和MIME映射。</td>
+</tr>
+<tr>
+<td><strong>lib</strong></td>
+<td>/</td>
+<td>Tomcat 服务器的依赖包</td>
+</tr>
+<tr>
+<td><strong>logs</strong></td>
+<td>/</td>
+<td>Tomcat 默认的日志存放目录</td>
+</tr>
+<tr>
+<td><strong>webapps</strong></td>
+<td>/</td>
+<td>Tomcat 默认的Web应用部署目录</td>
+</tr>
+<tr>
+<td><strong>work</strong></td>
+<td>/</td>
+<td>Web 应用JSP代码生成和编译的临时目录</td>
+</tr>
+</tbody></table>
+<h3 id="1-6-Tomcat-启动停止"><a href="#1-6-Tomcat-启动停止" class="headerlink" title="1.6 Tomcat 启动停止"></a>1.6 Tomcat 启动停止</h3><p>启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">双击 bin&#x2F;startup.bat 文件 ；</span><br></pre></td></tr></table></figure>
+
+<p>停止</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">双击 bin&#x2F;shutdown.bat 文件 ；</span><br></pre></td></tr></table></figure>
+
+<p>访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost:8080</span><br></pre></td></tr></table></figure>
+
+<p><img src="assets/1560583456498.png" alt="1560583456498"> </p>
+<h3 id="1-7-Tomcat源码"><a href="#1-7-Tomcat源码" class="headerlink" title="1.7 Tomcat源码"></a>1.7 Tomcat源码</h3><h4 id="1-7-1-下载"><a href="#1-7-1-下载" class="headerlink" title="1.7.1 下载"></a>1.7.1 下载</h4><p>地址： <a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-80.cgi</a></p>
+<p><img src="assets/1561476556938.png" alt="1561476556938"> </p>
+<h4 id="1-7-2-运行"><a href="#1-7-2-运行" class="headerlink" title="1.7.2 运行"></a>1.7.2 运行</h4><p>1） 解压zip压缩包</p>
+<p>2） 进入解压目录，并创建一个目录，命名为home ， 并将conf、webapps目录移入home 目录中</p>
+<p>3） 在当前目录下创建一个 pom.xml 文件，引入tomcat的依赖包</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>apache-tomcat-8.5.42-src<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Tomcat8.5<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>Tomcat8.5<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sourceDirectory</span>&gt;</span>java<span class="tag">&lt;/<span class="name">sourceDirectory</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- &lt;testSourceDirectory&gt;test&lt;/testSourceDirectory&gt;--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- &lt;testResources&gt;</span></span><br><span class="line"><span class="comment">           &lt;testResource&gt;</span></span><br><span class="line"><span class="comment">                &lt;directory&gt;test&lt;/directory&gt;</span></span><br><span class="line"><span class="comment">           &lt;/testResource&gt;</span></span><br><span class="line"><span class="comment">        &lt;/testResources&gt;--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.easymock<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>easymock<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ant<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ant<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>wsdl4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wsdl4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.6.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.xml<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jaxrpc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jdt.core.compiler<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ecj<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.5.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">       </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>4） 在idea中， 导入该工程。</p>
+<p><img src="assets/1561477805695.png" alt="1561477805695"> </p>
+<p>5） 配置idea的启动类， 配置 MainClass ， 并配置 VM 参数。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">-Dcatalina.home</span>=<span class="string">D:/idea-workspace/itcast_project_tomcat/apache-tomcat-8.5.42-src/home</span></span><br><span class="line"><span class="meta">-Dcatalina.base</span>=<span class="string">D:/idea-workspace/itcast_project_tomcat/apache-tomcat-8.5.42-src/home</span></span><br><span class="line"><span class="meta">-Djava.util.logging.manager</span>=<span class="string">org.apache.juli.ClassLoaderLogManager</span></span><br><span class="line"><span class="meta">-Djava.util.logging.config.file</span>=<span class="string">D:/idea-workspace/itcast_project_tomcat/apache-tomcat-8.5.42-src/home/conf/logging.properties</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="assets/1561477911915.png" alt="1561477911915"> </p>
+<p>6） 启动主方法， 运行Tomcat ， 访问Tomcat 。</p>
+<p><img src="assets/1561478100639.png" alt="1561478100639"> </p>
+<p>出现上述异常的原因，是我们直接启动org.apache.catalina.startup.Bootstrap的时候没有加载JasperInitializer，从而无法编译JSP。解决办法是在tomcat的源码ContextConfig中的configureStart函数中手动将JSP解析器初始化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context.addServletContainerInitializer(new JasperInitializer(), null);</span><br></pre></td></tr></table></figure>
+
+<p><img src="assets/1561478220305.png" alt="1561478220305"> </p>
+<p>7） 重启tomcat就可以正常访问了。</p>
+<p><img src="assets/1561478284441.png" alt="1561478284441"> </p>
+<h2 id="2-Tomcat-架构"><a href="#2-Tomcat-架构" class="headerlink" title="2.Tomcat 架构"></a>2.Tomcat 架构</h2><h3 id="2-1-Http工作原理"><a href="#2-1-Http工作原理" class="headerlink" title="2.1 Http工作原理"></a>2.1 Http工作原理</h3><p>HTTP协议是浏览器与服务器之间的数据传送协议。作为应用层协议，HTTP是基于TCP/IP协议来传递数据的（HTML文件、图片、查询结果等），HTTP协议不涉及数据包（Packet）传输，主要规定了客户端和服务器之间的通信格式。</p>
+<p><img src="assets/1560696193103.png" alt="1560696193103"> </p>
+<p>从图上你可以看到，这个过程是：</p>
+<p>1） 用户通过浏览器进行了一个操作，比如输入网址并回车，或者是点击链接，接着浏览器获取了这个事件。</p>
+<p>2） 浏览器向服务端发出TCP连接请求。</p>
+<p>3） 服务程序接受浏览器的连接请求，并经过TCP三次握手建立连接。</p>
+<p>4） 浏览器将请求数据打包成一个HTTP协议格式的数据包。</p>
+<p>5） 浏览器将该数据包推入网络，数据包经过网络传输，最终达到端服务程序。</p>
+<p>6） 服务端程序拿到这个数据包后，同样以HTTP协议格式解包，获取到客户端的意图。</p>
+<p>7） 得知客户端意图后进行处理，比如提供静态文件或者调用服务端程序获得动态结果。</p>
+<p>8） 服务器将响应结果（可能是HTML或者图片等）按照HTTP协议格式打包。</p>
+<p>9） 服务器将响应数据包推入网络，数据包经过网络传输最终达到到浏览器。</p>
+<p>10） 浏览器拿到数据包后，以HTTP协议的格式解包，然后解析数据，假设这里的数据是HTML。</p>
+<p>11） 浏览器将HTML文件展示在页面上。</p>
+<p>那我们想要探究的Tomcat作为一个HTTP服务器，在这个过程中都做了些什么事情呢？主要是接受连接、解析请求数据、处理请求和发送响应这几个步骤。</p>
+<h3 id="2-2-Tomcat整体架构"><a href="#2-2-Tomcat整体架构" class="headerlink" title="2.2 Tomcat整体架构"></a>2.2 Tomcat整体架构</h3><h4 id="2-2-1-Http服务器请求处理"><a href="#2-2-1-Http服务器请求处理" class="headerlink" title="2.2.1 Http服务器请求处理"></a>2.2.1 Http服务器请求处理</h4><p>浏览器发给服务端的是一个HTTP格式的请求，HTTP服务器收到这个请求后，需要调用服务端程序来处理，所谓的服务端程序就是你写的Java类，一般来说不同的请求需要由不同的Java类来处理。</p>
+<p><img src="assets/1560697061415.png" alt="1560697061415">  </p>
+<p>1） 图1 ， 表示HTTP服务器直接调用具体业务类，它们是紧耦合的。</p>
+<p>2） 图2，HTTP服务器不直接调用业务类，而是把请求交给容器来处理，容器通过Servlet接口调用业务类。因此Servlet接口和Servlet容器的出现，达到了HTTP服务器与业务类解耦的目的。而Servlet接口和Servlet容器这一整套规范叫作Servlet规范。Tomcat按照Servlet规范的要求实现了Servlet容器，同时它们也具有HTTP服务器的功能。作为Java程序员，如果我们要实现新的业务功能，只需要实现一个Servlet，并把它注册到Tomcat（Servlet容器）中，剩下的事情就由Tomcat帮我们处理了。</p>
+<h4 id="2-2-2-Servlet容器工作流程"><a href="#2-2-2-Servlet容器工作流程" class="headerlink" title="2.2.2 Servlet容器工作流程"></a>2.2.2 Servlet容器工作流程</h4><p>为了解耦，HTTP服务器不直接调用Servlet，而是把请求交给Servlet容器来处理，那Servlet容器又是怎么工作的呢？</p>
+<p>当客户请求某个资源时，HTTP服务器会用一个ServletRequest对象把客户的请求信息封装起来，然后调用Servlet容器的service方法，Servlet容器拿到请求后，根据请求的URL和Servlet的映射关系，找到相应的Servlet，如果Servlet还没有被加载，就用反射机制创建这个Servlet，并调用Servlet的init方法来完成初始化，接着调用Servlet的service方法来处理请求，把ServletResponse对象返回给HTTP服务器，HTTP服务器会把响应发送给客户端。</p>
+<p><img src="assets/1560833167711.png" alt="1560833167711"> </p>
+<h4 id="2-2-3-Tomcat整体架构"><a href="#2-2-3-Tomcat整体架构" class="headerlink" title="2.2.3 Tomcat整体架构"></a>2.2.3 Tomcat整体架构</h4><p>我们知道如果要设计一个系统，首先是要了解需求，我们已经了解了Tomcat要实现两个核心功能：</p>
+<p>1） 处理Socket连接，负责网络字节流与Request和Response对象的转化。<br>2） 加载和管理Servlet，以及具体处理Request请求。</p>
+<p>因此Tomcat设计了两个核心组件连接器（Connector）和容器（Container）来分别做这两件事情。连接器负责对外交流，容器负责内部处理。</p>
+<p><img src="assets/1560660827492.png" alt="1560660827492"> </p>
+<h3 id="2-3-连接器-Coyote"><a href="#2-3-连接器-Coyote" class="headerlink" title="2.3 连接器 - Coyote"></a>2.3 连接器 - Coyote</h3><h4 id="2-3-1-架构介绍"><a href="#2-3-1-架构介绍" class="headerlink" title="2.3.1 架构介绍"></a>2.3.1 架构介绍</h4><p>Coyote 是Tomcat的连接器框架的名称 , 是Tomcat服务器提供的供客户端访问的外部接口。客户端通过Coyote与服务器建立连接、发送请求并接受响应 。</p>
+<p>Coyote 封装了底层的网络通信（Socket 请求及响应处理），为Catalina 容器提供了统一的接口，使Catalina 容器与具体的请求协议及IO操作方式完全解耦。Coyote 将Socket 输入转换封装为 Request 对象，交由Catalina 容器进行处理，处理请求完成后, Catalina 通过Coyote 提供的Response 对象将结果写入输出流 。</p>
+<p>Coyote 作为独立的模块，只负责具体协议和IO的相关操作， 与Servlet 规范实现没有直接关系，因此即便是 Request 和 Response 对象也并未实现Servlet规范对应的接口， 而是在Catalina 中将他们进一步封装为ServletRequest 和 ServletResponse 。</p>
+<p><img src="assets/1561166229095.png" alt="1561166229095"> </p>
+<h4 id="2-3-2-IO模型与协议"><a href="#2-3-2-IO模型与协议" class="headerlink" title="2.3.2 IO模型与协议"></a>2.3.2 IO模型与协议</h4><p>在Coyote中 ， Tomcat支持的多种I/O模型和应用层协议，具体包含哪些IO模型和应用层协议，请看下表：</p>
+<p>Tomcat 支持的IO模型（自8.5/9.0 版本起，Tomcat 移除了 对 BIO 的支持）：</p>
+<table>
+<thead>
+<tr>
+<th>IO模型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NIO</td>
+<td>非阻塞I/O，采用Java NIO类库实现。</td>
+</tr>
+<tr>
+<td>NIO2</td>
+<td>异步I/O，采用JDK 7最新的NIO2类库实现。</td>
+</tr>
+<tr>
+<td>APR</td>
+<td>采用Apache可移植运行库实现，是C/C++编写的本地库。如果选择该方案，需要单独安装APR库。</td>
+</tr>
+</tbody></table>
+<p>Tomcat 支持的应用层协议 ：</p>
+<table>
+<thead>
+<tr>
+<th>应用层协议</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTTP/1.1</td>
+<td>这是大部分Web应用采用的访问协议。</td>
+</tr>
+<tr>
+<td>AJP</td>
+<td>用于和Web服务器集成（如Apache），以实现对静态资源的优化以及集群部署，当前支持AJP/1.3。</td>
+</tr>
+<tr>
+<td>HTTP/2</td>
+<td>HTTP 2.0大幅度的提升了Web性能。下一代HTTP协议 ， 自8.5以及9.0版本之后支持。</td>
+</tr>
+</tbody></table>
+<p>协议分层 ： </p>
+<p><img src="assets/1561170015860.png" alt="1561170015860"> </p>
+<p>在 8.0 之前 ， Tomcat 默认采用的I/O方式为 BIO ， 之后改为 NIO。 无论 NIO、NIO2 还是 APR， 在性能方面均优于以往的BIO。 如果采用APR， 甚至可以达到 Apache HTTP Server 的影响性能。</p>
+<p>Tomcat为了实现支持多种I/O模型和应用层协议，一个容器可能对接多个连接器，就好比一个房间有多个门。但是单独的连接器或者容器都不能对外提供服务，需要把它们组装起来才能工作，组装后这个整体叫作Service组件。这里请你注意，Service本身没有做什么重要的事情，只是在连接器和容器外面多包了一层，把它们组装在一起。Tomcat内可能有多个Service，这样的设计也是出于灵活性的考虑。通过在Tomcat中配置多个Service，可以实现通过不同的端口号来访问同一台机器上部署的不同应用。</p>
+<h4 id="2-3-3-连接器组件"><a href="#2-3-3-连接器组件" class="headerlink" title="2.3.3 连接器组件"></a>2.3.3 连接器组件</h4><p><img src="assets/1560661868721.png" alt="1560661868721"> </p>
+<p>连接器中的各个组件的作用如下：</p>
+<p><strong>EndPoint</strong></p>
+<p>1） EndPoint ： Coyote 通信端点，即通信监听的接口，是具体Socket接收和发送处理器，是对传输层的抽象，因此EndPoint用来实现TCP/IP协议的。</p>
+<p>2） Tomcat 并没有EndPoint 接口，而是提供了一个抽象类AbstractEndpoint ， 里面定义了两个内部类：Acceptor和SocketProcessor。Acceptor用于监听Socket连接请求。SocketProcessor用于处理接收到的Socket请求，它实现Runnable接口，在Run方法里调用协议处理组件Processor进行处理。为了提高处理能力，SocketProcessor被提交到线程池来执行。而这个线程池叫作执行器（Executor)，我在后面的专栏会详细介绍Tomcat如何扩展原生的Java线程池。</p>
+<p><strong>Processor</strong></p>
+<p>Processor ： Coyote 协议处理接口 ，如果说EndPoint是用来实现TCP/IP协议的，那么Processor用来实现HTTP协议，Processor接收来自EndPoint的Socket，读取字节流解析成Tomcat Request和Response对象，并通过Adapter将其提交到容器处理，Processor是对应用层协议的抽象。</p>
+<p><strong>ProtocolHandler</strong></p>
+<p>ProtocolHandler： Coyote 协议接口， 通过Endpoint 和 Processor ， 实现针对具体协议的处理能力。Tomcat 按照协议和I/O 提供了6个实现类 ： AjpNioProtocol ， AjpAprProtocol， AjpNio2Protocol ， Http11NioProtocol ，Http11Nio2Protocol ，Http11AprProtocol。我们在配置tomcat/conf/server.xml 时 ， 至少要指定具体的ProtocolHandler , 当然也可以指定协议名称 ， 如 ： HTTP/1.1 ，如果安装了APR，那么将使用Http11AprProtocol ， 否则使用 Http11NioProtocol 。</p>
+<p><strong>Adapter</strong></p>
+<p>由于协议不同，客户端发过来的请求信息也不尽相同，Tomcat定义了自己的Request类来“存放”这些请求信息。ProtocolHandler接口负责解析请求并生成Tomcat Request类。但是这个Request对象不是标准的ServletRequest，也就意味着，不能用Tomcat Request作为参数来调用容器。Tomcat设计者的解决方案是引入CoyoteAdapter，这是适配器模式的经典运用，连接器调用CoyoteAdapter的Sevice方法，传入的是Tomcat Request对象，CoyoteAdapter负责将Tomcat Request转成ServletRequest，再调用容器的Service方法。</p>
+<h4 id="2-3-4-源码解析"><a href="#2-3-4-源码解析" class="headerlink" title="2.3.4 源码解析"></a>2.3.4 源码解析</h4><p>具体的源码解析，请参考2.5 ， 2.6 章节讲解的Tomcat启动流程及请求处理流程</p>
+<h3 id="2-4-容器-Catalina"><a href="#2-4-容器-Catalina" class="headerlink" title="2.4 容器 - Catalina"></a>2.4 容器 - Catalina</h3><p>Tomcat是一个由一系列可配置的组件构成的Web容器，而Catalina是Tomcat的servlet容器。</p>
+<p>Catalina 是Servlet 容器实现，包含了之前讲到的所有的容器组件，以及后续章节涉及到的安全、会话、集群、管理等Servlet 容器架构的各个方面。它通过松耦合的方式集成Coyote，以完成按照请求协议进行数据读写。同时，它还包括我们的启动入口、Shell程序等。</p>
+<h4 id="2-4-1-Catalina-地位"><a href="#2-4-1-Catalina-地位" class="headerlink" title="2.4.1 Catalina 地位"></a>2.4.1 Catalina 地位</h4><p>Tomcat 的模块分层结构图， 如下：</p>
+<p><img src="assets/1561197171566.png" alt="1561197171566"> </p>
+<p>Tomcat 本质上就是一款 Servlet 容器， 因此Catalina 才是 Tomcat 的核心 ， 其他模块都是为Catalina 提供支撑的。 比如 ： 通过Coyote 模块提供链接通信，Jasper 模块提供JSP引擎，Naming 提供JNDI 服务，Juli 提供日志服务。</p>
+<h4 id="2-4-2-Catalina-结构"><a href="#2-4-2-Catalina-结构" class="headerlink" title="2.4.2 Catalina 结构"></a>2.4.2 Catalina 结构</h4><p>Catalina 的主要组件结构如下：</p>
+<p><img src="assets/1561197958434.png" alt="1561197958434"> </p>
+<p>如上图所示，Catalina负责管理Server，而Server表示着整个服务器。Server下面有多个服务Service，每个服务都包含着多个连接器组件Connector（Coyote 实现）和一个容器组件Container。在Tomcat 启动的时候， 会初始化一个Catalina的实例。</p>
+<p>Catalina 各个组件的职责：</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>职责</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Catalina</td>
+<td>负责解析Tomcat的配置文件 , 以此来创建服务器Server组件，并根据命令来对其进行管理</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>服务器表示整个Catalina Servlet容器以及其它组件，负责组装并启动Servlet引擎,Tomcat连接器。Server通过实现Lifecycle接口，提供了一种优雅的启动和关闭整个系统的方式</td>
+</tr>
+<tr>
+<td>Service</td>
+<td>服务是Server内部的组件，一个Server包含多个Service。它将若干个Connector组件绑定到一个Container（Engine）上</td>
+</tr>
+<tr>
+<td>Connector</td>
+<td>连接器，处理与客户端的通信，它负责接收客户请求，然后转给相关的容器处理，最后向客户返回响应结果</td>
+</tr>
+<tr>
+<td>Container</td>
+<td>容器，负责处理用户的servlet请求，并返回对象给web用户的模块</td>
+</tr>
+</tbody></table>
+<p><img src="assets/1561209001499.png" alt="1561209001499"> </p>
+<h4 id="2-4-3-Container-结构"><a href="#2-4-3-Container-结构" class="headerlink" title="2.4.3 Container 结构"></a>2.4.3 Container 结构</h4><p>Tomcat设计了4种容器，分别是Engine、Host、Context和Wrapper。这4种容器不是平行关系，而是父子关系。， Tomcat通过一种分层的架构，使得Servlet容器具有很好的灵活性。</p>
+<p><img src="assets/1560686115687.png" alt="1560686115687"> </p>
+<p>各个组件的含义 ： </p>
+<table>
+<thead>
+<tr>
+<th>容器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Engine</td>
+<td>表示整个Catalina的Servlet引擎，用来管理多个虚拟站点，一个Service最多只能有一个Engine，但是一个引擎可包含多个Host</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>代表一个虚拟主机，或者说一个站点，可以给Tomcat配置多个虚拟主机地址，而一个虚拟主机下可包含多个Context</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>表示一个Web应用程序， 一个Web应用可包含多个Wrapper</td>
+</tr>
+<tr>
+<td>Wrapper</td>
+<td>表示一个Servlet，Wrapper 作为容器中的最底层，不能包含子容器</td>
+</tr>
+</tbody></table>
+<p>我们也可以再通过Tomcat的server.xml配置文件来加深对Tomcat容器的理解。Tomcat采用了组件化的设计，它的构成组件都是可配置的，其中最外层的是Server，其他组件按照一定的格式要求配置在这个顶层容器中。</p>
+<p><img src="assets/1560854103740.png" alt="1560854103740"> </p>
+<p>那么，Tomcat是怎么管理这些容器的呢？你会发现这些容器具有父子关系，形成一个树形结构，你可能马上就想到了设计模式中的组合模式。没错，Tomcat就是用组合模式来管理这些容器的。具体实现方法是，所有容器组件都实现了Container接口，因此组合模式可以使得用户对单容器对象和组合容器对象的使用具有一致性。这里单容器对象指的是最底层的Wrapper，组合容器对象指的是上面的Context、Host或者Engine。</p>
+<p><img src="assets/1560854814464.png" alt="1560854814464"> </p>
+<p>Container 接口中提供了以下方法（截图中知识一部分方法） ：</p>
+<p><img src="assets/1560855419861.png" alt="1560855419861">  </p>
+<p>在上面的接口看到了getParent、SetParent、addChild和removeChild等方法。</p>
+<p>Container接口扩展了LifeCycle接口，LifeCycle接口用来统一管理各组件的生命周期，后面我也用专门的篇幅去详细介绍。 </p>
+<h3 id="2-5-Tomcat-启动流程"><a href="#2-5-Tomcat-启动流程" class="headerlink" title="2.5 Tomcat 启动流程"></a>2.5 Tomcat 启动流程</h3><h4 id="2-5-1-流程"><a href="#2-5-1-流程" class="headerlink" title="2.5.1 流程"></a>2.5.1 流程</h4><p><img src="assets/1560953623598.png" alt="1560953623598"> </p>
+<p>步骤 :</p>
+<p>1） 启动tomcat ， 需要调用 bin/startup.bat (在linux 目录下 , 需要调用 bin/startup.sh) ， 在startup.bat 脚本中, 调用了catalina.bat。</p>
+<p>2） 在catalina.bat 脚本文件中，调用了BootStrap 中的main方法。</p>
+<p>3）在BootStrap 的main 方法中调用了 init 方法 ， 来创建Catalina 及 初始化类加载器。</p>
+<p>4）在BootStrap 的main 方法中调用了 load 方法 ， 在其中又调用了Catalina的load方法。</p>
+<p>5）在Catalina 的load 方法中 , 需要进行一些初始化的工作, 并需要构造Digester 对象, 用于解析 XML。</p>
+<p>6） 然后在调用后续组件的初始化操作 。。。</p>
+<p>加载Tomcat的配置文件，初始化容器组件 ，监听对应的端口号， 准备接受客户端请求 。</p>
+<h4 id="2-5-2-源码解析"><a href="#2-5-2-源码解析" class="headerlink" title="2.5.2 源码解析"></a>2.5.2 源码解析</h4><h5 id="2-5-2-1-Lifecycle"><a href="#2-5-2-1-Lifecycle" class="headerlink" title="2.5.2.1 Lifecycle"></a>2.5.2.1 Lifecycle</h5><p>由于所有的组件均存在初始化、启动、停止等生命周期方法，拥有生命周期管理的特性， 所以Tomcat在设计的时候， 基于生命周期管理抽象成了一个接口 Lifecycle ，而组件 Server、Service、Container、Executor、Connector 组件 ， 都实现了一个生命周期的接口，从而具有了以下生命周期中的核心方法：</p>
+<p>1） init（）：初始化组件</p>
+<p>2） start（）：启动组件</p>
+<p>3） stop（）：停止组件</p>
+<p>4） destroy（）：销毁组件</p>
+<p><img src="assets/1561628676871.png" alt="1561628676871"> </p>
+<h5 id="2-5-2-2-各组件的默认实现"><a href="#2-5-2-2-各组件的默认实现" class="headerlink" title="2.5.2.2 各组件的默认实现"></a>2.5.2.2 各组件的默认实现</h5><p>上面我们提到的Server、Service、Engine、Host、Context都是接口， 下图中罗列了这些接口的默认实现类。当前对于 Endpoint组件来说，在Tomcat中没有对应的Endpoint接口， 但是有一个抽象类 AbstractEndpoint ，其下有三个实现类： NioEndpoint、Nio2Endpoint、AprEndpoint ， 这三个实现类，分别对应于前面讲解链接器 Coyote 时， 提到的链接器支持的三种IO模型：NIO，NIO2，APR ， Tomcat8.5版本中，默认采用的是 NioEndpoint。</p>
+<p><img src="assets/1561631313124.png" alt="1561631313124"> </p>
+<p>ProtocolHandler ： Coyote协议接口，通过封装Endpoint和Processor ， 实现针对具体协议的处理功能。Tomcat按照协议和IO提供了6个实现类。</p>
+<p>AJP协议：</p>
+<p>1） AjpNioProtocol ：采用NIO的IO模型。</p>
+<p>2） AjpNio2Protocol：采用NIO2的IO模型。</p>
+<p>3） AjpAprProtocol ：采用APR的IO模型，需要依赖于APR库。</p>
+<p>HTTP协议：</p>
+<p>1） Http11NioProtocol ：采用NIO的IO模型，默认使用的协议（如果服务器没有安装APR）。</p>
+<p>2） Http11Nio2Protocol：采用NIO2的IO模型。</p>
+<p>3） Http11AprProtocol ：采用APR的IO模型，需要依赖于APR库。</p>
+<p><img src="assets/1561633431160.png" alt="1561633431160"> </p>
+<h5 id="2-5-2-3-源码入口"><a href="#2-5-2-3-源码入口" class="headerlink" title="2.5.2.3 源码入口"></a>2.5.2.3 源码入口</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">目录： org.apache.catalina.startup</span><br><span class="line"></span><br><span class="line">MainClass：BootStrap ----&gt; main(String[] args)</span><br></pre></td></tr></table></figure>
+
+<p><img src="assets/1561632389373.png" alt="1561632389373"> </p>
+<h4 id="2-5-3-总结"><a href="#2-5-3-总结" class="headerlink" title="2.5.3 总结"></a>2.5.3 总结</h4><p>从启动流程图中以及源码中，我们可以看出Tomcat的启动过程非常标准化， 统一按照生命周期管理接口Lifecycle的定义进行启动。首先调用init() 方法进行组件的逐级初始化操作，然后再调用start()方法进行启动。</p>
+<p>每一级的组件除了完成自身的处理外，还要负责调用子组件响应的生命周期管理方法， 组件与组件之间是松耦合的，因为我们可以很容易的通过配置文件进行修改和替换。</p>
+<h3 id="2-6-Tomcat-请求处理流程"><a href="#2-6-Tomcat-请求处理流程" class="headerlink" title="2.6 Tomcat 请求处理流程"></a>2.6 Tomcat 请求处理流程</h3><h4 id="2-6-1-请求流程"><a href="#2-6-1-请求流程" class="headerlink" title="2.6.1 请求流程"></a>2.6.1 请求流程</h4><p>设计了这么多层次的容器，Tomcat是怎么确定每一个请求应该由哪个Wrapper容器里的Servlet来处理的呢？答案是，Tomcat是用Mapper组件来完成这个任务的。</p>
+<p>Mapper组件的功能就是将用户请求的URL定位到一个Servlet，它的工作原理是：Mapper组件里保存了Web应用的配置信息，其实就是容器组件与访问路径的映射关系，比如Host容器里配置的域名、Context容器里的Web应用路径，以及Wrapper容器里Servlet映射的路径，你可以想象这些配置信息就是一个多层次的Map。</p>
+<p>当一个请求到来时，Mapper组件通过解析请求URL里的域名和路径，再到自己保存的Map里去查找，就能定位到一个Servlet。请你注意，一个请求URL最后只会定位到一个Wrapper容器，也就是一个Servlet。</p>
+<p>下面的示意图中 ， 就描述了 当用户请求链接 <code>http://www.itcast.cn/bbs/findAll</code> 之后, 是如何找到最终处理业务逻辑的servlet 。</p>
+<p><img src="assets/1560956861899.png" alt="1560956861899"></p>
+<p>那上面这幅图只是描述了根据请求的URL如何查找到需要执行的Servlet ， 那么下面我们再来解析一下 ， 从Tomcat的设计架构层面来分析Tomcat的请求处理。</p>
+<p><img src="assets/1560959032664.png" alt="1560959032664"> </p>
+<p>步骤如下:</p>
+<p>1) Connector组件Endpoint中的Acceptor监听客户端套接字连接并接收Socket。<br>2) 将连接交给线程池Executor处理，开始执行请求响应任务。<br>3) Processor组件读取消息报文，解析请求行、请求体、请求头，封装成Request对象。<br>4) Mapper组件根据请求行的URL值和请求头的Host值匹配由哪个Host容器、Context容器、Wrapper容器处理请求。<br>5) CoyoteAdaptor组件负责将Connector组件和Engine容器关联起来，把生成的Request对象和响应对象Response传递到Engine容器中，调用 Pipeline。<br>6) Engine容器的管道开始处理，管道中包含若干个Valve、每个Valve负责部分处理逻辑。执行完Valve后会执行基础的 Valve–StandardEngineValve，负责调用Host容器的Pipeline。<br>7) Host容器的管道开始处理，流程类似，最后执行 Context容器的Pipeline。<br>8) Context容器的管道开始处理，流程类似，最后执行 Wrapper容器的Pipeline。<br>9) Wrapper容器的管道开始处理，流程类似，最后执行 Wrapper容器对应的Servlet对象的 处理方法。</p>
+<h4 id="2-6-2-请求流程源码解析"><a href="#2-6-2-请求流程源码解析" class="headerlink" title="2.6.2 请求流程源码解析"></a>2.6.2 请求流程源码解析</h4><p><img src="assets/1561723489828.png" alt="1561723489828"> </p>
+<p>在前面所讲解的Tomcat的整体架构中，我们发现Tomcat中的各个组件各司其职，组件之间松耦合，确保了整体架构的可伸缩性和可拓展性，那么在组件内部，如何增强组件的灵活性和拓展性呢？ 在Tomcat中，每个Container组件采用责任链模式来完成具体的请求处理。</p>
+<p>在Tomcat中定义了Pipeline 和 Valve 两个接口，Pipeline 用于构建责任链， 后者代表责任链上的每个处理器。Pipeline 中维护了一个基础的Valve，它始终位于Pipeline的末端（最后执行），封装了具体的请求处理和输出响应的过程。当然，我们也可以调用addValve()方法， 为Pipeline 添加其他的Valve， 后添加的Valve 位于基础的Valve之前，并按照添加顺序执行。Pipiline通过获得首个Valve来启动整合链条的执行 。</p>
+<h2 id="3-Jasper"><a href="#3-Jasper" class="headerlink" title="3.Jasper"></a>3.Jasper</h2><h3 id="3-1-Jasper-简介"><a href="#3-1-Jasper-简介" class="headerlink" title="3.1 Jasper 简介"></a>3.1 Jasper 简介</h3><p>对于基于JSP 的web应用来说，我们可以直接在JSP页面中编写 Java代码，添加第三方的标签库，以及使用EL表达式。但是无论经过何种形式的处理，最终输出到客户端的都是标准的HTML页面（包含js ，css…），并不包含任何的java相关的语法。 也就是说， 我们可以把jsp看做是一种运行在服务端的脚本。 那么服务器是如何将 JSP页面转换为HTML页面的呢？</p>
+<p>Jasper模块是Tomcat的JSP核心引擎，我们知道JSP本质上是一个Servlet。Tomcat使用Jasper对JSP语法进行解析，生成Servlet并生成Class字节码，用户在进行访问jsp时，会访问Servlet，最终将访问的结果直接响应在浏览器端 。另外，在运行的时候，Jasper还会检测JSP文件是否修改，如果修改，则会重新编译JSP文件。</p>
+<h3 id="3-2-JSP-编译方式"><a href="#3-2-JSP-编译方式" class="headerlink" title="3.2 JSP 编译方式"></a>3.2 JSP 编译方式</h3><h4 id="3-2-1-运行时编译"><a href="#3-2-1-运行时编译" class="headerlink" title="3.2.1 运行时编译"></a>3.2.1 运行时编译</h4><p>Tomcat 并不会在启动Web应用的时候自动编译JSP文件， 而是在客户端第一次请求时，才编译需要访问的JSP文件。</p>
+<p>创建一个web项目, 并编写JSP代码 : </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page <span class="keyword">import</span>=<span class="string">"java.text.DateFormat"</span> %&gt;</span><br><span class="line">&lt;%@ page <span class="keyword">import</span>=<span class="string">"java.text.SimpleDateFormat"</span> %&gt;</span><br><span class="line">&lt;%@ page <span class="keyword">import</span>=<span class="string">"java.util.Date"</span> %&gt;</span><br><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;%@ taglib prefix=<span class="string">"c"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;$Title$&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">      DateFormat dateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">      String format = dateFormat.format(<span class="keyword">new</span> Date());</span><br><span class="line">    %&gt;</span><br><span class="line">    Hello , Java Server Page 。。。。</span><br><span class="line"></span><br><span class="line">    &lt;br/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;%= format %&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="3-2-1-1-编译过程"><a href="#3-2-1-1-编译过程" class="headerlink" title="3.2.1.1 编译过程"></a>3.2.1.1 编译过程</h5><p>Tomcat 在默认的web.xml 中配置了一个org.apache.jasper.servlet.JspServlet，用于处理所有的.jsp 或 .jspx 结尾的请求，该Servlet 实现即是运行时编译的入口。</p>
+<p><img src="assets/1561218961211.png" alt="1561218961211"> </p>
+<p>JspServlet 处理流程图： </p>
+<p><img src="assets/1561218587098.png" alt="1561218587098"> </p>
+<h5 id="3-2-2-编译结果"><a href="#3-2-2-编译结果" class="headerlink" title="3.2.2 编译结果"></a>3.2.2 编译结果</h5><p>1） 如果在 tomcat/conf/web.xml 中配置了参数scratchdir ， 则jsp编译后的结果，就会存储在该目录下 。</p>
+<p><img src="assets/1561221034443.png" alt="1561221034443">  </p>
+<p>2） 如果没有配置该选项， 则会将编译后的结果，存储在Tomcat安装目录下的 work/Catalina(Engine名称)/localhost(Host名称)/Context名称 。 假设项目名称为 jsp_demo_01 ,  默认的目录为 ： work/Catalina/localhost/jsp_demo_01。</p>
+<p>3） 如果使用的是 IDEA 开发工具集成Tomcat 访问web工程中的jsp ， 编译后的结果， 存放在 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\.IntelliJIdea2019.1\system\tomcat\_project_tomcat\work\Catalina\localhost\jsp_demo_01_war_exploded\org\apache\jsp</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-2-2-预编译"><a href="#3-2-2-预编译" class="headerlink" title="3.2.2 预编译"></a>3.2.2 预编译</h4><p>除了运行时编译，我们还可以直接在Web应用启动时， 一次性将Web应用中的所有的JSP页面一次性编译完成。在这种情况下，Web应用运行过程中，便可以不必再进行实时编译，而是直接调用JSP页面对应的Servlet 完成请求处理， 从而提升系统性能。</p>
+<p>Tomcat 提供了一个Shell程序JspC，用于支持JSP预编译，而且在Tomcat的安装目录下提供了一个 catalina-tasks.xml 文件声明了Tomcat 支持的Ant任务， 因此，我们很容易使用 Ant 来执行JSP 预编译 。（要想使用这种方式，必须得确保在此之前已经下载并安装了Apache Ant）。</p>
+<h3 id="3-3-JSP编译原理"><a href="#3-3-JSP编译原理" class="headerlink" title="3.3 JSP编译原理"></a>3.3 JSP编译原理</h3><h4 id="3-3-1-代码分析"><a href="#3-3-1-代码分析" class="headerlink" title="3.3.1 代码分析"></a>3.3.1 代码分析</h4><p>编译后的.class 字节码文件及源码 : </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">index_jsp</span> <span class="keyword">extends</span> <span class="title">org</span>.<span class="title">apache</span>.<span class="title">jasper</span>.<span class="title">runtime</span>.<span class="title">HttpJspBase</span></span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">org</span>.<span class="title">apache</span>.<span class="title">jasper</span>.<span class="title">runtime</span>.<span class="title">JspSourceDependent</span>,<span class="title">org</span>.<span class="title">apache</span>.<span class="title">jasper</span>.<span class="title">runtime</span>.<span class="title">JspSourceImports</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> javax.servlet.jsp.JspFactory _jspxFactory =</span><br><span class="line">          javax.servlet.jsp.JspFactory.getDefaultFactory();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> java.util.Map&lt;java.lang.String,java.lang.Long&gt; _jspx_dependants;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> &#123;</span><br><span class="line">    _jspx_dependants = <span class="keyword">new</span> java.util.HashMap&lt;java.lang.String,java.lang.Long&gt;(<span class="number">2</span>);</span><br><span class="line">    _jspx_dependants.put(<span class="string">"jar:file:/D:/DevelopProgramFile/apache-tomcat-8.5.42-windows-x64/apache-tomcat-8.5.42/webapps/jsp_demo_01/WEB-INF/lib/standard.jar!/META-INF/c.tld"</span>, Long.valueOf(<span class="number">1098682290000L</span>));</span><br><span class="line">    _jspx_dependants.put(<span class="string">"/WEB-INF/lib/standard.jar"</span>, Long.valueOf(<span class="number">1490343635913L</span>));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> java.util.Set&lt;java.lang.String&gt; _jspx_imports_packages;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> java.util.Set&lt;java.lang.String&gt; _jspx_imports_classes;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> &#123;</span><br><span class="line">    _jspx_imports_packages = <span class="keyword">new</span> java.util.HashSet&lt;&gt;();</span><br><span class="line">    _jspx_imports_packages.add(<span class="string">"javax.servlet"</span>);</span><br><span class="line">    _jspx_imports_packages.add(<span class="string">"javax.servlet.http"</span>);</span><br><span class="line">    _jspx_imports_packages.add(<span class="string">"javax.servlet.jsp"</span>);</span><br><span class="line">    _jspx_imports_classes = <span class="keyword">new</span> java.util.HashSet&lt;&gt;();</span><br><span class="line">    _jspx_imports_classes.add(<span class="string">"java.util.Date"</span>);</span><br><span class="line">    _jspx_imports_classes.add(<span class="string">"java.text.SimpleDateFormat"</span>);</span><br><span class="line">    _jspx_imports_classes.add(<span class="string">"java.text.DateFormat"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">volatile</span> javax.el.ExpressionFactory _el_expressionfactory;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">volatile</span> org.apache.tomcat.InstanceManager _jsp_instancemanager;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> java.util.Map&lt;java.lang.String,java.lang.Long&gt; getDependants() &#123;</span><br><span class="line">    <span class="keyword">return</span> _jspx_dependants;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> java.util.Set&lt;java.lang.String&gt; getPackageImports() &#123;</span><br><span class="line">    <span class="keyword">return</span> _jspx_imports_packages;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> java.util.Set&lt;java.lang.String&gt; getClassImports() &#123;</span><br><span class="line">    <span class="keyword">return</span> _jspx_imports_classes;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> javax.el.<span class="function">ExpressionFactory <span class="title">_jsp_getExpressionFactory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (_el_expressionfactory == <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (_el_expressionfactory == <span class="keyword">null</span>) &#123;</span><br><span class="line">          _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _el_expressionfactory;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> org.apache.tomcat.<span class="function">InstanceManager <span class="title">_jsp_getInstanceManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (_jsp_instancemanager == <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (_jsp_instancemanager == <span class="keyword">null</span>) &#123;</span><br><span class="line">          _jsp_instancemanager = org.apache.jasper.runtime.InstanceManagerFactory.getInstanceManager(getServletConfig());</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _jsp_instancemanager;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">_jspInit</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">_jspDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">_jspService</span><span class="params">(<span class="keyword">final</span> javax.servlet.http.HttpServletRequest request, <span class="keyword">final</span> javax.servlet.http.HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">      <span class="keyword">throws</span> java.io.IOException, javax.servlet.ServletException </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">final</span> java.lang.String _jspx_method = request.getMethod();</span><br><span class="line">    <span class="keyword">if</span> (!<span class="string">"GET"</span>.equals(_jspx_method) &amp;&amp; !<span class="string">"POST"</span>.equals(_jspx_method) &amp;&amp; !<span class="string">"HEAD"</span>.equals(_jspx_method) &amp;&amp; !javax.servlet.DispatcherType.ERROR.equals(request.getDispatcherType())) &#123;</span><br><span class="line">      response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED, <span class="string">"JSPs only permit GET POST or HEAD"</span>);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">final</span> javax.servlet.jsp.PageContext pageContext;</span><br><span class="line">    javax.servlet.http.HttpSession session = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">final</span> javax.servlet.ServletContext application;</span><br><span class="line">    <span class="keyword">final</span> javax.servlet.ServletConfig config;</span><br><span class="line">    javax.servlet.jsp.JspWriter out = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">final</span> java.lang.Object page = <span class="keyword">this</span>;</span><br><span class="line">    javax.servlet.jsp.JspWriter _jspx_out = <span class="keyword">null</span>;</span><br><span class="line">    javax.servlet.jsp.PageContext _jspx_page_context = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      response.setContentType(<span class="string">"text/html;charset=UTF-8"</span>);</span><br><span class="line">      pageContext = _jspxFactory.getPageContext(<span class="keyword">this</span>, request, response,</span><br><span class="line">      			<span class="keyword">null</span>, <span class="keyword">true</span>, <span class="number">8192</span>, <span class="keyword">true</span>);</span><br><span class="line">      _jspx_page_context = pageContext;</span><br><span class="line">      application = pageContext.getServletContext();</span><br><span class="line">      config = pageContext.getServletConfig();</span><br><span class="line">      session = pageContext.getSession();</span><br><span class="line">      out = pageContext.getOut();</span><br><span class="line">      _jspx_out = out;</span><br><span class="line"></span><br><span class="line">      out.write(<span class="string">"\n"</span>);</span><br><span class="line">      out.write(<span class="string">"\n"</span>);</span><br><span class="line">      out.write(<span class="string">"\n"</span>);</span><br><span class="line">      out.write(<span class="string">"\n"</span>);</span><br><span class="line">      out.write(<span class="string">"\n"</span>);</span><br><span class="line">      out.write(<span class="string">"&lt;html&gt;\n"</span>);</span><br><span class="line">      out.write(<span class="string">"  &lt;head&gt;\n"</span>);</span><br><span class="line">      out.write(<span class="string">"    &lt;title&gt;$Title$&lt;/title&gt;\n"</span>);</span><br><span class="line">      out.write(<span class="string">"  &lt;/head&gt;\n"</span>);</span><br><span class="line">      out.write(<span class="string">"  &lt;body&gt;\n"</span>);</span><br><span class="line">      out.write(<span class="string">"    "</span>);</span><br><span class="line"></span><br><span class="line">      DateFormat dateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">      String format = dateFormat.format(<span class="keyword">new</span> Date());</span><br><span class="line">    </span><br><span class="line">      out.write(<span class="string">"\n"</span>);</span><br><span class="line">      out.write(<span class="string">"    Hello , Java Server Page 。。。。\n"</span>);</span><br><span class="line">      out.write(<span class="string">"\n"</span>);</span><br><span class="line">      out.write(<span class="string">"    &lt;br/&gt;\n"</span>);</span><br><span class="line">      out.write(<span class="string">"\n"</span>);</span><br><span class="line">      out.write(<span class="string">"    "</span>);</span><br><span class="line">      out.print( format );</span><br><span class="line">      out.write(<span class="string">"\n"</span>);</span><br><span class="line">      out.write(<span class="string">"\n"</span>);</span><br><span class="line">      out.write(<span class="string">"  &lt;/body&gt;\n"</span>);</span><br><span class="line">      out.write(<span class="string">"&lt;/html&gt;\n"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (java.lang.Throwable t) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!(t <span class="keyword">instanceof</span> javax.servlet.jsp.SkipPageException))&#123;</span><br><span class="line">        out = _jspx_out;</span><br><span class="line">        <span class="keyword">if</span> (out != <span class="keyword">null</span> &amp;&amp; out.getBufferSize() != <span class="number">0</span>)</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (response.isCommitted()) &#123;</span><br><span class="line">              out.flush();</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              out.clearBuffer();</span><br><span class="line">            &#125;</span><br><span class="line">          &#125; <span class="keyword">catch</span> (java.io.IOException e) &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> (_jspx_page_context != <span class="keyword">null</span>) _jspx_page_context.handlePageException(t);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">throw</span> <span class="keyword">new</span> ServletException(t);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">      _jspxFactory.releasePageContext(_jspx_page_context);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>由编译后的源码解读， 可以分析出以下几点 ：</p>
+<p>1） 其类名为 index_jsp ， 继承自 org.apache.jasper.runtime.HttpJspBase ， 该类是HttpServlet 的子类 ， 所以jsp 本质就是一个Servlet 。</p>
+<p>2） 通过属性 _jspx_dependants 保存了当前JSP页面依赖的资源， 包含引入的外部的JSP页面、导入的标签、标签所在的jar包等，便于后续处理过程中使用（如重新编译检测，因此它以Map形式保存了每个资源的上次修改时间）。</p>
+<p>3） 通过属性 _jspx_imports_packages 存放导入的 java 包， 默认导入 javax.servlet ， javax.servlet.http, javax.servlet.jsp 。</p>
+<p>4） 通过属性 _jspx_imports_classes 存放导入的类， 通过import 指令导入的 DateFormat 、SimpleDateFormat 、Date 都会包含在该集合中。 _jspx_imports_packages 和 _jspx_imports_classes  属性主要用于配置 EL 引擎上下文 。</p>
+<p>5） 请求处理由方法 _jspService 完成 ， 而在父类 HttpJspBase 中的service 方法通过模板方法模式 ， 调用了子类的 _jspService  方法。</p>
+<p><img src="assets/1561290672734.png" alt="1561290672734"> </p>
+<p>6） _jspService  方法中定义了几个重要的局部变量 ： pageContext 、Session、application、config、out、page。由于整个页面的输出有 _jspService 方法完成，因此这些变量和参数会对整个JSP页面生效。 这也是我们为什么可以在JSP页面使用这些变量的原因。</p>
+<p>7） 指定文档类型的指令 （page） 最终转换为  response.setContentType() 方法调用。</p>
+<p>8） 对于每一行的静态内容（HTML） ， 调用 out.write 输出。</p>
+<p>9） 对于 &lt;%   …   %&gt; 中的java 代码 ， 将直接转换为 Servlet 类中的代码。 如果在 Java 代码中嵌入了静态文件， 则同样调用 out.write 输出。</p>
+<h4 id="3-3-2-编译流程"><a href="#3-3-2-编译流程" class="headerlink" title="3.3.2 编译流程"></a>3.3.2 编译流程</h4><p>JSP 编译过程如下：</p>
+<p><img src="assets/1561298658175.png" alt="1561298658175"> </p>
+<p>Compiler 编译工作主要包含代码生成 和 编译两部分 ： </p>
+<p><strong>代码生成</strong></p>
+<p>1） Compiler 通过一个 PageInfo 对象保存JSP 页面编译过程中的各种配置，这些配置可能来源于 Web 应用初始化参数， 也可能来源于JSP页面的指令配置（如 page ， include）。</p>
+<p>2） 调用ParserController 解析指令节点， 验证其是否合法，同时将配置信息保存到PageInfo 中， 用于控制代码生成。</p>
+<p>3） 调用ParserController 解析整个页面， 由于 JSP  是逐行解析， 所以对于每一行会创建一个具体的Node 对象。如  静态文本（TemplateText）、Java代码（Scriptlet）、定制标签（CustomTag）、Include指令（IncludeDirective）。</p>
+<p>4） 验证除指令外其他所有节点的合法性， 如 脚本、定制标签、EL表达式等。</p>
+<p>5） 收集除指令外其他节点的页面配置信息。</p>
+<p>6） 编译并加载当前 JSP 页面依赖的标签</p>
+<p>7） 对于JSP页面的EL表达式，生成对应的映射函数。</p>
+<p>8） 生成JSP页面对应的Servlet 类源代码</p>
+<p><strong>编译</strong></p>
+<p>代码生成完成后， Compiler 还会生成 SMAP 信息。 如果配置生成 SMAP 信息，Compiler 则会在编译阶段将SMAP 信息写到class 文件中 。</p>
+<p>在编译阶段， Compiler 的两个实现 AntCompiler 和 JDTCompiler 分别调用先关框架的API 进行源代码编译。 </p>
+<p>对于 AntCompiler 来说， 构造一个 Ant 的javac 的任务完成编译。</p>
+<p>对于 JDTCompiler 来说， 调用 org.eclipse.jdt.internal.compiler.Compiler 完成编译。 </p>
+<h2 id="4-Tomcat-服务器配置"><a href="#4-Tomcat-服务器配置" class="headerlink" title="4.Tomcat 服务器配置"></a>4.Tomcat 服务器配置</h2><p>Tomcat 服务器的配置主要集中于 tomcat/conf 下的 catalina.policy、catalina.properties、context.xml、server.xml、tomcat-users.xml、web.xml 文件。</p>
+<h3 id="4-1-server-xml"><a href="#4-1-server-xml" class="headerlink" title="4.1 server.xml"></a>4.1 server.xml</h3><p>server.xml  是tomcat 服务器的核心配置文件，包含了Tomcat的 Servlet 容器（Catalina）的所有配置。由于配置的属性特别多，我们在这里主要讲解其中的一部分重要配置。</p>
+<h4 id="4-1-1-Server"><a href="#4-1-1-Server" class="headerlink" title="4.1.1 Server"></a>4.1.1 Server</h4><p>Server是server.xml的根元素，用于创建一个Server实例，默认使用的实现类是  org.apache.catalina.core.StandardServer。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Server</span> <span class="attr">port</span>=<span class="string">"8005"</span> <span class="attr">shutdown</span>=<span class="string">"SHUTDOWN"</span>&gt;</span></span><br><span class="line">	...</span><br><span class="line"><span class="tag">&lt;/<span class="name">Server</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>port : Tomcat 监听的关闭服务器的端口。</p>
+<p>shutdown： 关闭服务器的指令字符串。</p>
+<p>Server内嵌的子元素为 Listener、GlobalNamingResources、Service。</p>
+<p>默认配置的5个Listener 的含义：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用于以日志形式输出服务器 、操作系统、JVM的版本信息 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.startup.VersionLoggerListener"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用于加载（服务器启动） 和 销毁 （服务器停止） APR。 如果找不到APR库， 则会输出日志， 并不影响Tomcat启动 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.AprLifecycleListener"</span> <span class="attr">SSLEngine</span>=<span class="string">"on"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用于避免JRE内存泄漏问题 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.JreMemoryLeakPreventionListener"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用户加载（服务器启动） 和 销毁（服务器停止） 全局命名服务 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用于在Context停止时重建Executor 池中的线程， 以避免ThreadLocal 相关的内存泄漏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.ThreadLocalLeakPreventionListener"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>GlobalNamingResources 中定义了全局命名服务：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Global JNDI resources</span></span><br><span class="line"><span class="comment">     Documentation at /docs/jndi-resources-howto.html</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">GlobalNamingResources</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Editable user database that can also be used by</span></span><br><span class="line"><span class="comment">         UserDatabaseRealm to authenticate users</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Resource</span> <span class="attr">name</span>=<span class="string">"UserDatabase"</span> <span class="attr">auth</span>=<span class="string">"Container"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">type</span>=<span class="string">"org.apache.catalina.UserDatabase"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">description</span>=<span class="string">"User database that can be updated and saved"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">factory</span>=<span class="string">"org.apache.catalina.users.MemoryUserDatabaseFactory"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">pathname</span>=<span class="string">"conf/tomcat-users.xml"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">GlobalNamingResources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-1-2-Service"><a href="#4-1-2-Service" class="headerlink" title="4.1.2 Service"></a>4.1.2 Service</h4><p>该元素用于创建 Service 实例，默认使用 org.apache.catalina.core.StandardService。 默认情况下，Tomcat 仅指定了Service 的名称， 值为 “Catalina”。Service 可以内嵌的元素为 ： Listener、Executor、Connector、Engine，其中 ： Listener 用于为Service添加生命周期监听器， Executor 用于配置Service 共享线程池，Connector 用于配置Service 包含的链接器， Engine 用于配置Service中链接器对应的Servlet 容器引擎。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Service</span> <span class="attr">name</span>=<span class="string">"Catalina"</span>&gt;</span></span><br><span class="line">	...</span><br><span class="line"><span class="tag">&lt;/<span class="name">Service</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>一个Server服务器，可以包含多个Service服务。</p>
+<h4 id="4-1-3-Executor"><a href="#4-1-3-Executor" class="headerlink" title="4.1.3 Executor"></a>4.1.3 Executor</h4><p>默认情况下，Service 并未添加共享线程池配置。 如果我们想添加一个线程池， 可以在 <Service> 下添加如下配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Executor</span> <span class="attr">name</span>=<span class="string">"tomcatThreadPool"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">namePrefix</span>=<span class="string">"catalina-exec-"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">maxThreads</span>=<span class="string">"200"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">minSpareThreads</span>=<span class="string">"100"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">maxIdleTime</span>=<span class="string">"60000"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">maxQueueSize</span>=<span class="string">"Integer.MAX_VALUE"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">prestartminSpareThreads</span>=<span class="string">"false"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">threadPriority</span>=<span class="string">"5"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.StandardThreadExecutor"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> 属性说明：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>线程池名称，用于 Connector中指定。</td>
+</tr>
+<tr>
+<td>namePrefix</td>
+<td>所创建的每个线程的名称前缀，一个单独的线程名称为 namePrefix+threadNumber。</td>
+</tr>
+<tr>
+<td>maxThreads</td>
+<td>池中最大线程数。</td>
+</tr>
+<tr>
+<td>minSpareThreads</td>
+<td>活跃线程数，也就是核心池线程数，这些线程不会被销毁，会一直存在。</td>
+</tr>
+<tr>
+<td>maxIdleTime</td>
+<td>线程空闲时间，超过该时间后，空闲线程会被销毁，默认值为6000（1分钟），单位毫秒。</td>
+</tr>
+<tr>
+<td>maxQueueSize</td>
+<td>在被执行前最大线程排队数目，默认为Int的最大值，也就是广义的无限。除非特殊情况，这个值不需要更改，否则会有请求不会被处理的情况发生。</td>
+</tr>
+<tr>
+<td>prestartminSpareThreads</td>
+<td>启动线程池时是否启动 minSpareThreads部分线程。默认值为false，即不启动。</td>
+</tr>
+<tr>
+<td>threadPriority</td>
+<td>线程池中线程优先级，默认值为5，值从1到10。</td>
+</tr>
+<tr>
+<td>className</td>
+<td>线程池实现类，未指定情况下，默认实现类为org.apache.catalina.core.StandardThreadExecutor。如果想使用自定义线程池首先需要实现 org.apache.catalina.Executor接口。</td>
+</tr>
+</tbody></table>
+<p><img src="assets/1561375210344.png" alt="1561375210344"> </p>
+<p>如果不配置共享线程池，那么Catalina 各组件在用到线程池时会独立创建。</p>
+<h4 id="4-1-4-Connector"><a href="#4-1-4-Connector" class="headerlink" title="4.1.4 Connector"></a>4.1.4 Connector</h4><p>Connector 用于创建链接器实例。默认情况下，server.xml 配置了两个链接器，一个支持HTTP协议，一个支持AJP协议。因此大多数情况下，我们并不需要新增链接器配置，只是根据需要对已有链接器进行优化。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span> <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8009"</span> <span class="attr">protocol</span>=<span class="string">"AJP/1.3"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>属性说明：</p>
+<p>1） port： 端口号，Connector 用于创建服务端Socket 并进行监听， 以等待客户端请求链接。如果该属性设置为0，Tomcat将会随机选择一个可用的端口号给当前Connector 使用。</p>
+<p>2） protocol ： 当前Connector 支持的访问协议。 默认为 HTTP/1.1 ， 并采用自动切换机制选择一个基于 JAVA NIO 的链接器或者基于本地APR的链接器（根据本地是否含有Tomcat的本地库判定）。</p>
+<p>如果不希望采用上述自动切换的机制， 而是明确指定协议， 可以使用以下值。</p>
+<p>Http协议：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">org.apache.coyote.http11.Http11NioProtocol ， 非阻塞式 Java NIO 链接器</span><br><span class="line">org.apache.coyote.http11.Http11Nio2Protocol ， 非阻塞式 JAVA NIO2 链接器 </span><br><span class="line">org.apache.coyote.http11.Http11AprProtocol ， APR 链接器</span><br></pre></td></tr></table></figure>
+
+<p>AJP协议 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">org.apache.coyote.ajp.AjpNioProtocol ， 非阻塞式 Java NIO 链接器</span><br><span class="line">org.apache.coyote.ajp.AjpNio2Protocol ，非阻塞式 JAVA NIO2 链接器 </span><br><span class="line">org.apache.coyote.ajp.AjpAprProtocol ， APR 链接器</span><br></pre></td></tr></table></figure>
+
+<p>3） connectionTimeOut : Connector 接收链接后的等待超时时间， 单位为 毫秒。 -1 表示不超时。</p>
+<p>4） redirectPort：当前Connector 不支持SSL请求， 接收到了一个请求， 并且也符合security-constraint 约束， 需要SSL传输，Catalina自动将请求重定向到指定的端口。</p>
+<p>5） executor ： 指定共享线程池的名称， 也可以通过maxThreads、minSpareThreads 等属性配置内部线程池。</p>
+<p>6） URIEncoding : 用于指定编码URI的字符编码， Tomcat8.x版本默认的编码为 UTF-8 , Tomcat7.x版本默认为ISO-8859-1。</p>
+<p>完整的配置如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span>   </span></span><br><span class="line"><span class="tag">          <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">executor</span>=<span class="string">"tomcatThreadPool"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">maxThreads</span>=<span class="string">"1000"</span>   </span></span><br><span class="line"><span class="tag">          <span class="attr">minSpareThreads</span>=<span class="string">"100"</span>   </span></span><br><span class="line"><span class="tag">          <span class="attr">acceptCount</span>=<span class="string">"1000"</span>  </span></span><br><span class="line"><span class="tag">          <span class="attr">maxConnections</span>=<span class="string">"1000"</span>  </span></span><br><span class="line"><span class="tag">          <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">compression</span>=<span class="string">"on"</span>  </span></span><br><span class="line"><span class="tag">          <span class="attr">compressionMinSize</span>=<span class="string">"2048"</span>  </span></span><br><span class="line"><span class="tag">          <span class="attr">disableUploadTimeout</span>=<span class="string">"true"</span>  </span></span><br><span class="line"><span class="tag">          <span class="attr">redirectPort</span>=<span class="string">"8443"</span>  </span></span><br><span class="line"><span class="tag">          <span class="attr">URIEncoding</span>=<span class="string">"UTF-8"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-1-5-Engine"><a href="#4-1-5-Engine" class="headerlink" title="4.1.5 Engine"></a>4.1.5 Engine</h4><p>Engine 作为Servlet 引擎的顶级元素，内部可以嵌入： Cluster、Listener、Realm、Valve和Host。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Engine</span> <span class="attr">name</span>=<span class="string">"Catalina"</span> <span class="attr">defaultHost</span>=<span class="string">"localhost"</span>&gt;</span></span><br><span class="line">	...</span><br><span class="line"><span class="tag">&lt;/<span class="name">Engine</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>属性说明：</p>
+<p>1） name： 用于指定Engine 的名称， 默认为Catalina 。该名称会影响一部分Tomcat的存储路径（如临时文件）。</p>
+<p>2） defaultHost ： 默认使用的虚拟主机名称， 当客户端请求指向的主机无效时， 将交由默认的虚拟主机处理， 默认为localhost。</p>
+<h4 id="4-1-6-Host"><a href="#4-1-6-Host" class="headerlink" title="4.1.6 Host"></a>4.1.6 Host</h4><p>Host 元素用于配置一个虚拟主机， 它支持以下嵌入元素：Alias、Cluster、Listener、Valve、Realm、Context。如果在Engine下配置Realm， 那么此配置将在当前Engine下的所有Host中共享。 同样，如果在Host中配置Realm ， 则在当前Host下的所有Context中共享。Context中的Realm优先级 &gt; Host 的Realm优先级 &gt; Engine中的Realm优先级。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"localhost"</span>  <span class="attr">appBase</span>=<span class="string">"webapps"</span> <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>属性说明：</p>
+<p>1） name: 当前Host通用的网络名称， 必须与DNS服务器上的注册信息一致。 Engine中包含的Host必须存在一个名称与Engine的defaultHost设置一致。</p>
+<p>2） appBase： 当前Host的应用基础目录， 当前Host上部署的Web应用均在该目录下（可以是绝对目录，相对路径）。默认为webapps。</p>
+<p>3） unpackWARs： 设置为true， Host在启动时会将appBase目录下war包解压为目录。设置为false， Host将直接从war文件启动。</p>
+<p>4） autoDeploy： 控制tomcat是否在运行时定期检测并自动部署新增或变更的web应用。</p>
+<p>通过给Host添加别名，我们可以实现同一个Host拥有多个网络名称，配置如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"www.web1.com"</span>  <span class="attr">appBase</span>=<span class="string">"webapps"</span> <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Alias</span>&gt;</span>www.web2.com<span class="tag">&lt;/<span class="name">Alias</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个时候，我们就可以通过两个域名访问当前Host下的应用（需要确保DNS或hosts中添加了域名的映射配置）。</p>
+<h4 id="4-1-7-Context"><a href="#4-1-7-Context" class="headerlink" title="4.1.7 Context"></a>4.1.7 Context</h4><p>Context 用于配置一个Web应用，默认的配置如下： </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"myApp"</span> <span class="attr">path</span>=<span class="string">"/myApp"</span>&gt;</span></span><br><span class="line">    ....</span><br><span class="line"><span class="tag">&lt;/<span class="name">Context</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>属性描述：</p>
+<p>1） docBase：Web应用目录或者War包的部署路径。可以是绝对路径，也可以是相对于 Host appBase的相对路径。</p>
+<p>2） path：Web应用的Context 路径。如果我们Host名为localhost， 则该web应用访问的根路径为： <a href="http://localhost:8080/myApp。" target="_blank" rel="noopener">http://localhost:8080/myApp。</a></p>
+<p>它支持的内嵌元素为：CookieProcessor， Loader， Manager，Realm，Resources，WatchedResource，JarScanner，Valve。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"www.tomcat.com"</span>  <span class="attr">appBase</span>=<span class="string">"webapps"</span> <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"D:\servlet_project03"</span> <span class="attr">path</span>=<span class="string">"/myApp"</span>&gt;</span><span class="tag">&lt;/<span class="name">Context</span>&gt;</span>  </span><br><span class="line">	</span><br><span class="line">    <span class="tag">&lt;<span class="name">Valve</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.valves.AccessLogValve"</span> <span class="attr">directory</span>=<span class="string">"logs"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">prefix</span>=<span class="string">"localhost_access_log"</span> <span class="attr">suffix</span>=<span class="string">".txt"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">pattern</span>=<span class="string">"%h %l %u %t <span class="symbol">&amp;quot;</span>%r<span class="symbol">&amp;quot;</span> %s %b"</span> /&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-2-tomcat-users-xml"><a href="#4-2-tomcat-users-xml" class="headerlink" title="4.2 tomcat-users.xml"></a>4.2 tomcat-users.xml</h3><p>该配置文件中，主要配置的是Tomcat的用户，角色等信息，用来控制Tomcat中manager， host-manager的访问权限。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/" data-id="ck7xfhuyj0005o4vl0udugeg0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/18/%E7%B2%BE%E9%80%9ASpring%20Boot%E4%B8%8ECloud/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">精通Spring Boot与Cloud</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/03/18/Tomcat%20%E4%B8%93%E9%A2%98/">Tomcat 专题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/%E7%B2%BE%E9%80%9ASpring%20Boot%E4%B8%8ECloud/">精通Spring Boot与Cloud</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/Windows%E4%B8%8BCmder%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/">Windows下Cmder的配置与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/18/jar%E6%96%87%E4%BB%B6%E8%A7%84%E8%8C%83/">jar文件规范</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 xiaohua<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">tags</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
